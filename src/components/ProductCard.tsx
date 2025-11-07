@@ -28,23 +28,10 @@ const ProductCard: FC<ProductCardPropsType> = ({ product }) => {
     (indexedOrder
       ? `bg-accent-red justify-between items-center border-accent-red`
       : `bg-neutral-rose-50 hover:bg-neutral-rose-100 border-neutral-rose-500  justify-center items-center gap-2 cursor-pointer`);
-  // Convert relative paths to module imports
-  const mobileImg = new URL(product.image.mobile, import.meta.url).href;
-  const tabletImg = new URL(product.image.tablet, import.meta.url).href;
-  const desktopImg = new URL(product.image.desktop, import.meta.url).href;
 
-  const addToCartIcon = new URL(
-    '../assets/images/icon-add-to-cart.svg',
-    import.meta.url
-  ).href;
-  const incrementIcon = new URL(
-    '../assets/images/icon-increment-quantity.svg',
-    import.meta.url
-  ).href;
-  const decrementIcon = new URL(
-    '../assets/images/icon-decrement-quantity.svg',
-    import.meta.url
-  ).href;
+  const addToCartIcon = '/images/icon-add-to-cart.svg';
+  const incrementIcon = '/images/icon-increment-quantity.svg';
+  const decrementIcon = '/images/icon-decrement-quantity.svg';
 
   //This is here so that when an item is in the cart, it doesn't add it twice when clicking increment button.
   const handleAddToCart = () => {
@@ -62,9 +49,9 @@ const ProductCard: FC<ProductCardPropsType> = ({ product }) => {
           }`}
         >
           <picture>
-            <source srcSet={mobileImg} media="(max-width : 48rem)" />
-            <source srcSet={tabletImg} media="(max-width : 64rem)" />
-            <img src={desktopImg} alt={product.name} />
+            <source srcSet={product.image.mobile} media="(max-width : 48rem)" />
+            <source srcSet={product.image.tablet} media="(max-width : 64rem)" />
+            <img src={product.image.desktop} alt={product.name} />
           </picture>
         </div>
         <button className={buttonClasses} onClick={handleAddToCart}>

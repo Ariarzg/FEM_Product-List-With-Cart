@@ -11,10 +11,7 @@ const App = () => {
 
   const { orders, getTotalCost, resetOrders } = useCartStore();
 
-  const confirmIcon = new URL(
-    './assets/images/icon-order-confirmed.svg',
-    import.meta.url
-  ).href;
+  const confirmIcon = '/images/icon-order-confirmed.svg';
 
   const activateModal = () => {
     setIsModalActive(true);
@@ -41,16 +38,11 @@ const App = () => {
             </p>
             <div className="bg-neutral-100 p-6 rounded-lg mt-8">
               {orders.map((order) => {
-                const thumbnail = new URL(
-                  order.product.image.thumbnail,
-                  import.meta.url
-                ).href;
-
                 return (
                   <div className="flex justify-between items-center border-b border-neutral-200 pb-5">
                     <div className="flex gap-4">
                       <img
-                        src={thumbnail}
+                        src={order.product.image.thumbnail}
                         alt={`Thumbnail of ${order.product.name}`}
                         className="rounded-lg w-18"
                       />

@@ -1,10 +1,9 @@
 import type { FC } from 'react';
 import useCartStore, { type Order } from '../stores/cartStore';
 
-const emptyCart = new URL(
-  '../assets/images/illustration-empty-cart.svg',
-  import.meta.url
-).href;
+const emptyCart = 'images/illustration-empty-cart.svg';
+const removeIcon = '/images/icon-remove-item.svg';
+const carbonNeutralIcon = '/images/icon-carbon-neutral.svg';
 
 interface YourCartPropType {
   onConfirm: () => void;
@@ -14,16 +13,6 @@ const YourCart: FC<YourCartPropType> = ({ onConfirm }) => {
   const { orders, removeProductFromCart } = useCartStore();
   const totalCount = useCartStore((state) => state.getTotalOrdersCount());
   const totalCost = useCartStore((state) => state.getTotalCost());
-
-  const removeIcon = new URL(
-    '../assets/images/icon-remove-item.svg',
-    import.meta.url
-  ).href;
-
-  const carbonNeutralIcon = new URL(
-    '../assets/images/icon-carbon-neutral.svg',
-    import.meta.url
-  ).href;
 
   const calculateOneOrderCost = (order: Order) => {
     return order.product.price * order.count;
