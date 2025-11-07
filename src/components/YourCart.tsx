@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import useCartStore, { type Order } from '../stores/cartStore';
+import { motion } from 'motion/react';
 
 const emptyCart = 'images/illustration-empty-cart.svg';
 const removeIcon = '/images/icon-remove-item.svg';
@@ -40,7 +41,7 @@ const YourCart: FC<YourCartPropType> = ({ onConfirm }) => {
                 </span>
               </div>
               <div
-                className="w-5 h-5 rounded-full flex justify-center items-center border border-neutral-rose-300"
+                className="w-5 h-5 rounded-full flex justify-center items-center border border-neutral-rose-300 cursor-pointer"
                 onClick={() => removeProductFromCart(order.product)}
               >
                 <img src={removeIcon} alt="Remove Icon" className="scale-115" />
@@ -60,12 +61,15 @@ const YourCart: FC<YourCartPropType> = ({ onConfirm }) => {
             </p>
           </div>
 
-          <button
-            className="text-center w-full bg-accent-red text-neutral-rose-100 font-medium py-4 rounded-full mt-8 cursor-pointer"
+          <motion.button
+            className="text-center w-full text-neutral-rose-100 font-medium py-4 rounded-full mt-8 cursor-pointer"
             onClick={onConfirm}
+            initial={{ backgroundColor: '#c73a0f' }}
+            whileHover={{ backgroundColor: '#1ea475' }}
+            transition={{ duration: 0.25 }}
           >
             Confirm Order
-          </button>
+          </motion.button>
         </div>
       ) : (
         <>

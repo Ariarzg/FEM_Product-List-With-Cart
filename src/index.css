@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap');
 @import 'tailwindcss';
 
+@plugin 'tailwind-scrollbar' {
+  nocompatible: true;
+}
+
 @theme {
   --color-accent-red: hsl(14, 86%, 42%);
   --color-accent-green: hsl(159, 69%, 38%);

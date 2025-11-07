@@ -50,7 +50,7 @@ const ProductCard: FC<ProductCardPropsType> = ({ product }) => {
         >
           <picture>
             <source srcSet={product.image.mobile} media="(max-width : 48rem)" />
-            <source srcSet={product.image.tablet} media="(max-width : 64rem)" />
+            <source srcSet={product.image.tablet} media="(max-width : 80rem)" />
             <img src={product.image.desktop} alt={product.name} />
           </picture>
         </div>
@@ -58,7 +58,7 @@ const ProductCard: FC<ProductCardPropsType> = ({ product }) => {
           {indexedOrder ? (
             <>
               <div
-                className="w-5 h-5 rounded-full flex justify-center items-center border border-neutral-rose-50"
+                className="w-5 h-5 rounded-full flex justify-center items-center border border-neutral-rose-50 cursor-pointer"
                 onClick={() => removeItem(product)}
               >
                 <img src={decrementIcon} alt="decrement icon" />
@@ -67,7 +67,7 @@ const ProductCard: FC<ProductCardPropsType> = ({ product }) => {
               <p className="text-neutral-rose-50">{indexedOrder.count}</p>
 
               <div
-                className="w-5 h-5 rounded-full flex justify-center items-center border border-neutral-rose-50"
+                className="w-5 h-5 rounded-full flex justify-center items-center border border-neutral-rose-50 cursor-pointer"
                 onClick={() => addItem(product)}
               >
                 <img src={incrementIcon} alt="increment icon" />
@@ -81,7 +81,9 @@ const ProductCard: FC<ProductCardPropsType> = ({ product }) => {
           )}
         </button>
       </div>
-      <p className="text-sm text-neutral-rose-400">{product.category}</p>
+      <p className="text-sm text-neutral-rose-400 md:mt-8 lg:mt-10">
+        {product.category}
+      </p>
       <p className="font-semibold text-neutral-rose-900">{product.name}</p>
       <p className="text-accent-red font-semibold">
         ${product.price.toFixed(2)}
