@@ -17,4 +17,6 @@
   --color-neutral-rose-900: hsl(14, 65%, 9%);
 
   --font-redhat: 'Red Hat Text', sans-serif;
+
+  --breakpoint-twoCols: 54rem;
 }

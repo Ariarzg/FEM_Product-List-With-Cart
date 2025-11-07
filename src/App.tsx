@@ -90,7 +90,7 @@ const App = () => {
         <h1 className="font-bold text-[2.5rem] text-neutral-rose-900">
           Desserts
         </h1>
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 twoCols:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
           {productData.map((product, index) => (
             <ProductCard product={product} key={index} />
           ))}
